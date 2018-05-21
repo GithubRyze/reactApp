@@ -21,7 +21,6 @@ export default class Input extends React.Component {
     }
 
     handleInputChange(event){
-       // console.log('cancel'+event.target.value);
         this.setState({
             noteName: event.target.value
         })
@@ -30,7 +29,6 @@ export default class Input extends React.Component {
 
 
     handleCancel(event) {
-        //console.log('cancel'+this);
         this.setState({
             noteName: '',
             noteDescription: ''
@@ -39,12 +37,12 @@ export default class Input extends React.Component {
     }
 
     handleSave(event) { 
-        // if(!this.state.noteName || !this.state.noteDescription){
-        //     console.log('NoteName or NoteDescription is empty');
-        //     event.preventDefault();
-        //     return;
-        // }
         if(this.props.onSubmit){
+            if(!this.state.noteName || !this.state.noteDescription){
+                alert('Notename and NoteDescription cannot be empty');
+                event.preventDefault();
+                return;
+            }
             this.props.onSubmit(this.state.noteName,this.state.noteDescription);
         }      
         event.preventDefault();

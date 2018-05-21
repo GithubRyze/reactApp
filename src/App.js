@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 import Header from '../src/components/Header';
 import '../src/components/index.css';
@@ -22,7 +21,7 @@ class App extends Component {
     setUsers(data) {
         const list = JSON.parse(data);
         for (let index in list.rows) {
-            if (index == 0) {
+            if (index === 0) {
                 list.rows[index].isChecked = true;
             } else {
                 list.rows[index].isChecked = false;

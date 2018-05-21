@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
+import React from 'react';
 import Profile from '../components/Profile';
 import PageIndicate from '../components/PageIndicate';
-export default class Left extends Component {
+export default class Left extends React.Component {
     constructor(props) {
         super(props);
         this.selectedUser = this.selectedUser.bind(this);

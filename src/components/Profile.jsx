@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 
 export default class Profile extends React.Component {
 
@@ -60,7 +60,7 @@ export default class Profile extends React.Component {
         return (
             <div style={this.state.style} onClick={this.selectUser} >
                 <div className="div-arrow">
-                    <img className="arrow" />
+                    <img className="arrow"/>
                 </div>
                 <div className="div-avatar">
                     <img className="div-user-avatar" src={url} />

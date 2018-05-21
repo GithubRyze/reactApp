@@ -40,6 +40,24 @@ module.exports = {
 
     },
 
+    getNote: (req, res, next) => {
+        let id = req.query.id;
+        Note.find().catch(err => {
+            const result = {
+                code: 205,
+                msg: 'failed',
+            }
+            res.status(500).end(JSON.stringify(result));
+         }).then(note => {
+            const result = {
+                code: 200,
+                msg: 'success',
+                data: note
+            }
+            res.status(200).end(JSON.stringify(result));
+         });
+    },
+
     deleteNote: (req, res, next) => {
         let id = req.query.id;
         Note.destroy({

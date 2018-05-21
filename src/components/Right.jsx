@@ -25,7 +25,7 @@ export default class Right extends React.Component {
     }
 
     componentWillReceiveProps(nextProps) {
-        if (this.props.user.id != nextProps.user.id) {
+        if (this.props.user.id !== nextProps.user.id) {
             this.setState({
                 refresh: true
             });
