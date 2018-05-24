@@ -5,6 +5,7 @@ const Sequelize = require('sequelize');
 const Note = db.define('note', {
     id: { type: Sequelize.INTEGER, allowNull: false, autoIncrement: true, primaryKey: true },
     user_id: { type: Sequelize.INTEGER, allowNull: false },
+    username: { type: Sequelize.STRING, allowNull: false},
     notename: { type: Sequelize.STRING, allowNull: false },
     notedescription: { type: Sequelize.STRING, allowNull: false }
 }, { timestamps: true });

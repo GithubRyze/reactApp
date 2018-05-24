@@ -11,6 +11,7 @@ module.exports = {
         }
         const note = {
             user_id: req.body.user_id,
+            username: req.body.username,
             notename: req.body.noteName,
             notedescription: req.body.noteDescription
         }
@@ -80,12 +81,37 @@ module.exports = {
     },
 
     queryNotes: function (req, res, next) {
-        //console.log('addNote::'+ JSON.stringify(req.query) );
         const limit = 2;
         const offset = req.query.offset * limit || 0;
         Note.findAndCountAll({
             where: {
                 user_id: req.query.user_id
+            },
+            limit: limit,
+            offset: offset,
+            order: [['id', 'DESC'],
+            ]
+        }).then(result => {
+            if (result) {
+                const rd = {
+                    message: 'success',
+                    total: result.count,
+                    rows: result.rows
+                };
+                res.status(200).end(JSON.stringify(rd));
+            } else {
+                res.status(200).end('Not found records');
+            }
+        }).catch(err => {
+            res.status(200).end(err.message);
+        });
+    },
+    queryNotesByName: function (req, res, next) {
+        const limit = 2;
+        const offset = req.query.offset * limit || 0;
+        Note.findAndCountAll({
+            where: {
+                username: req.query.username
             },
             limit: limit,
             offset: offset,

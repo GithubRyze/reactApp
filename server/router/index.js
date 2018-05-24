@@ -7,4 +7,5 @@ router.post('/addNote', Note.addNote);
 router.get('/deleteNote', Note.deleteNote);
 router.get('/queryNotes', Note.queryNotes);
 router.get('/getUsers', User.queryUsers);
+router.get('/queryNotesByName', Note.queryNotesByName);
 module.exports = router;

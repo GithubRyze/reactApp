@@ -100,6 +100,7 @@ export default class Right extends React.Component {
         };
         const note = {
             user_id: this.props.user.id,
+            username: this.props.user.username,
             noteName: noteName,
             noteDescription: noteDescription
         }
